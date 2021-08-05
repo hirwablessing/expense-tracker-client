@@ -1,6 +1,6 @@
 import React from "react";
 
-interface NavbarProps {
+export interface NavbarProps {
   title: string;
   subtitle: string;
 }
