@@ -22,8 +22,8 @@ export default function Sidebar() {
               key={i}
               className={
                 router.pathname === link.path
-                  ? "w-full flex gap-3 items-center my-4 active"
-                  : "w-full flex gap-3 items-center my-4"
+                  ? "w-full flex gap-3 items-center my-2 active"
+                  : "w-full flex gap-3 items-center my-2"
               }
             >
               {parse(link.icon)}
