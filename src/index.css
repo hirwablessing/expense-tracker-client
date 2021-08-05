@@ -1,5 +1,31 @@
-@import 'tailwindcss/base';
+@import "tailwindcss/base";
 
-@import 'tailwindcss/components';
+@import "tailwindcss/components";
 
-@import 'tailwindcss/utilities';
+@import "tailwindcss/utilities";
+
+/* sidebar */
+.app-menu a {
+  padding: 7px;
+}
+.app-menu a:hover {
+  background-color: #ec634818;
+  color: #ec6448;
+  border-right: 5px solid #ec6448;
+}
+.app-menu a:hover .menu-icons {
+  fill: #ec6448;
+}
+.app-menu .active {
+  background-color: #ec634818;
+  color: #ec6448;
+  border-right: 5px solid #ec6448;
+}
+.app-menu .active .menu-icons {
+  fill: #ec6448;
+}
+
+/* icons */
+.icon-primary {
+  fill: #ec6448;
+}
