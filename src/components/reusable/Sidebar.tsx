@@ -1,39 +1,40 @@
+/* eslint-disable @next/next/no-img-element */
+
 import React from "react";
+import parse from "html-react-parser";
 import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "../../resources/MenuLinks";
 
-function Sidebar() {
+export default function Sidebar() {
   const router = useLocation();
-
   return (
-    <div className="block shadow bg-white p-5 rounded h-full">
-      <div className="app-heade items-center">
-        <h2>LOGO</h2>
+    <div className="block shadow bg-white p-5 rounded h-screen">
+      <div className="app-header flex gap-2 items-center">
+        <h2>logo</h2>
       </div>
 
-      <div className="app-menu mt-10 mb-4 text-sm">
-        <h1>Overview</h1>
+      <div className="app-menu mt-10 text-sm flex flex-col items-center justify-center">
         {MenuLinks?.map((link: any, i) => {
+          console.log(router.pathname === link.path);
           return (
-            <NavLink to={link.pathname} key={i}>
-              <a
-                className={
-                  router.pathname === link.pathname
-                    ? "w-full flex gap-3 items-center my-4 active"
-                    : "w-full flex gap-3 items-center my-4"
-                }
-              >
-                link.icon
-                {link.name}
-              </a>
+            <NavLink
+              to={link.path}
+              key={i}
+              className={
+                router.pathname === link.path
+                  ? "w-full flex gap-3 items-center my-4 active"
+                  : "w-full flex gap-3 items-center my-4"
+              }
+            >
+              {parse(link.icon)}
+              {link.name}
             </NavLink>
           );
         })}
-
-        <button className="bg-[#ec6448] text-center">Logout</button>
+        <button className="bg-[#ec6448] text-center text-white rounded p-2 w-52 absolute bottom-0">
+          Logout
+        </button>
       </div>
     </div>
   );
 }
-
-export default Sidebar;

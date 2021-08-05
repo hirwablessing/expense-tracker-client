@@ -2,10 +2,10 @@ import React from "react";
 import Navbar from "../components/reusable/Navbar";
 import Sidebar from "../components/reusable/Sidebar";
 
-export interface DashboardProps {
-  title: string;
-  subtitle: string;
-}
+// export interface DashboardProps {
+//   title: string;
+//   subtitle: string;
+// }
 
 function Dashboard(props: any) {
   return (
