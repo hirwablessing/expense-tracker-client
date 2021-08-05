@@ -19,7 +19,7 @@ export default function Sidebar() {
           return (
             <NavLink
               to={link.path}
-              key={i}
+              key={link.name}
               className={
                 router.pathname === link.path
                   ? "w-full flex gap-3 items-center my-2 active"
