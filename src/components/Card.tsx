@@ -1,6 +1,12 @@
 import React from "react";
+interface CardProps {
+  total: number;
+  title: string;
+  img: string;
+  bgColor: string;
+}
 
-function Card(props: any) {
+function Card(props: CardProps) {
   return (
     <div className="shadow-sm p-5 rounded bg-white">
       <div className="flex gap-5">

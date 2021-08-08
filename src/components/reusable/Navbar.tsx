@@ -1,5 +1,4 @@
 import React from "react";
-
 export interface NavbarProps {
   title: string;
   subtitle: string;

@@ -1,13 +1,15 @@
 import React from "react";
+
 import Navbar from "../components/reusable/Navbar";
 import Sidebar from "../components/reusable/Sidebar";
 
-// export interface DashboardProps {
-//   title: string;
-//   subtitle: string;
-// }
+export interface DashboardProps {
+  title?: string;
+  subtitle?: string;
+  children: React.ReactNode;
+}
 
-function Dashboard(props: any) {
+function Dashboard(props: DashboardProps) {
   return (
     <div className="bg-gray-50 h-screen">
       {/* inner block */}
@@ -18,7 +20,7 @@ function Dashboard(props: any) {
         {/* navbar and body */}
         <div className="block lg:w-4/5">
           <div className="hidden lg:block">
-            <Navbar title={props.navTitle} subtitle={props.navSubTitle} />
+            <Navbar title={props.title ?? ""} subtitle={props.subtitle ?? ""} />
           </div>
           <div className="block w-full overflow-y-auto h-full py-5">
             {props.children}

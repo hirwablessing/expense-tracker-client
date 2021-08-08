@@ -6,6 +6,12 @@ import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "../../resources/MenuLinks";
 
 export default function Sidebar() {
+  interface MenuLinks {
+    name: string;
+    path: string;
+    icon: string;
+  }
+
   const router = useLocation();
   return (
     <div className="block shadow bg-white p-5 rounded h-screen">
@@ -14,7 +20,7 @@ export default function Sidebar() {
       </div>
 
       <div className="app-menu mt-10 text-sm flex flex-col items-center justify-center">
-        {MenuLinks?.map((link: any, i) => {
+        {MenuLinks?.map((link: MenuLinks) => {
           console.log(router.pathname === link.path);
           return (
             <NavLink
