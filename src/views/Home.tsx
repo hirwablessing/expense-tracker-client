@@ -11,7 +11,7 @@ export default function Home() {
         <Card total={345} title="Expenses" img="" bgColor="#ec6448" />
         <Card total={345} title="Income" img="" bgColor="#ec6448" />
       </div>
-      <div className="bg-white rounded shadow-md my-2 w-full overflow-auto pb-10">
+      <div className="bg-white rounded shadow-md my-2 w-full pb-10">
         <IncomeChart />
       </div>
     </Dashboard>

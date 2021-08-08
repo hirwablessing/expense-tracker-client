@@ -22,9 +22,7 @@ function Dashboard(props: DashboardProps) {
           <div className="hidden lg:block">
             <Navbar title={props.title ?? ""} subtitle={props.subtitle ?? ""} />
           </div>
-          <div className="block w-full overflow-y-auto h-full py-5">
-            {props.children}
-          </div>
+          <div className="block w-full h-full py-5">{props.children}</div>
         </div>
       </div>
     </div>
