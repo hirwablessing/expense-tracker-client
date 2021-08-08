@@ -1,57 +1,5 @@
 import React from "react";
-import { Icons } from "../resources/Icons";
-import parse from "html-react-parser";
 export default function TransactionList() {
-  const data = [
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Active",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Active",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Innactive",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Active",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Innactive",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-    {
-      name: "Eric McKinnon",
-      location: "Nigeria",
-      status: "Innactive",
-      login_status: "Last login: 14/APR/2020",
-      email: "ericmckin@gmail.com",
-      revenue: "$58,200",
-    },
-  ];
   return (
     <div className="container mx-auto p-6">
       <div className="w-full mb-8 rounded-lg shadow-lg">
