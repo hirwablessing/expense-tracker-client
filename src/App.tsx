@@ -4,6 +4,7 @@ import Expenses from "./views/Expenses";
 
 import Home from "./views/Home";
 import Login from "./views/Login";
+import Register from "./views/Register";
 import Transactions from "./views/Transactions";
 
 const App = () => {
@@ -14,6 +15,10 @@ const App = () => {
       <Switch>
         <Route exact path="/">
           <Login />
+        </Route>
+
+        <Route exact path="/register">
+          <Register />
         </Route>
 
         <Route exact path="/home">
