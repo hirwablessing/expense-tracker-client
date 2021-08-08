@@ -6,7 +6,7 @@ import { Pie, defaults } from "react-chartjs-2";
 // globalAny.global.tooltips.enabled = false;
 // globalAny.global.legend.position = "bottom";
 
-function Icome() {
+export default function IncomeChart() {
   const data2019 = [
     {
       name: "Jan 2019",
@@ -86,22 +86,22 @@ function Icome() {
       <Pie
         data={{
           labels: [
-            "Red",
-            "Blue",
-            "Yellow",
-            "Green",
-            "Purple",
-            "Orange",
-            "Green",
-            "pink",
-            "cyan",
-            "gold",
-            "black",
-            "dodgerblue",
+            "Jan",
+            "Feb",
+            "Mar",
+            "Apr",
+            "May",
+            "June",
+            "July",
+            "Aug",
+            "Sept",
+            "Oct",
+            "Nov",
+            "Dec",
           ],
           datasets: [
             {
-              label: "# of votes",
+              label: "# of income",
               data: [12, 19, 3, 5, 2, 3, 43, 21, 12, 10, 31, 20],
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
@@ -152,5 +152,3 @@ function Icome() {
     </div>
   );
 }
-
-export default Icome;

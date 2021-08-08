@@ -1,7 +1,7 @@
 import React from "react";
 import Card from "../components/Card";
 import Dashboard from "../layouts/Dashboard";
-import Income from "../components/Income";
+import IncomeChart from "../components/IncomeChart";
 
 export default function Home() {
   return (
@@ -12,7 +12,7 @@ export default function Home() {
         <Card total={345} title="Income" img="" bgColor="#ec6448" />
       </div>
       <div className="bg-white rounded shadow-md my-2 w-full overflow-auto pb-10">
-        <Income />
+        <IncomeChart />
       </div>
     </Dashboard>
   );

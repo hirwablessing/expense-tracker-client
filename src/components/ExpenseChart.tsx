@@ -1,7 +1,5 @@
 import React from "react";
 
-function Expenses() {
+export default function ExpensesChart() {
   return <div>I'm the expense component</div>;
 }
-
-export default Expenses;

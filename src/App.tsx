@@ -3,6 +3,7 @@ import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Expenses from "./views/Expenses";
 
 import Home from "./views/Home";
+import Transactions from "./views/Transactions";
 
 const App = () => {
   return (
@@ -16,6 +17,10 @@ const App = () => {
 
         <Route exact path="/expenses">
           <Expenses />
+        </Route>
+
+        <Route exact path="/transactions">
+          <Transactions />
         </Route>
       </Switch>
     </Router>
