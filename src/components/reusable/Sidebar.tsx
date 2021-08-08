@@ -31,7 +31,7 @@ export default function Sidebar() {
             </NavLink>
           );
         })}
-        <button className="bg-[#ec6448] text-center text-white rounded p-2 w-52 absolute bottom-0">
+        <button className="bg-[#ec6448] text-center text-white rounded p-2 w-52 md:absolute md:bottom-0 my-10">
           Logout
         </button>
       </div>

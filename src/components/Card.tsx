@@ -2,7 +2,7 @@ import React from "react";
 
 function Card(props: any) {
   return (
-    <div className="shadow p-5 rounded bg-white">
+    <div className="shadow-sm p-5 rounded bg-white">
       <div className="flex gap-5">
         <div className="block w-1/2">
           <h1 className="block font-bold text-lg">{props.total}</h1>

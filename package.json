@@ -7,10 +7,15 @@
     "serve": "vite preview"
   },
   "dependencies": {
+    "@types/react-transition-group": "^4.4.2",
+    "chart.js": "^3.5.0",
     "html-react-parser": "^1.2.7",
     "react": "^17.0.0",
+    "react-chartjs-2": "^3.0.4",
     "react-dom": "^17.0.0",
-    "react-router-dom": "^5.2.0"
+    "react-router-dom": "^5.2.0",
+    "react-transition-group": "^4.4.2",
+    "recharts": "2.0.6"
   },
   "devDependencies": {
     "@types/react": "^17.0.0",

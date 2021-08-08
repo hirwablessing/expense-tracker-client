@@ -25,7 +25,7 @@ function Navbar(props: NavbarProps) {
             <h1 className="block font-bold">{profile.name}</h1>
             <h2 className="text-gray-400 text-sm">{profile.account_type}</h2>
           </div>
-          <div className="rounded-full shadow-lg w-1/2">
+          <div className="rounded-full shadow-xl w-1/2">
             <img src="./user.png" alt="" />
           </div>
         </div>
