@@ -14,7 +14,7 @@ export const MainContext: React.FC = ({ children }) => {
   //   function to logout
   const logout = () => {
     localStorage.clear();
-    router.push("/login");
+    router.push("/");
   };
 
   useEffect(() => {
@@ -22,7 +22,7 @@ export const MainContext: React.FC = ({ children }) => {
     setUser(data);
 
     if (!data?._id) {
-      router.push("/login");
+      router.push("/");
     }
   }, []);
 

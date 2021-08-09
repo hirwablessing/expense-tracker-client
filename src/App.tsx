@@ -8,10 +8,15 @@ import Register from "./views/Register";
 import Transactions from "./views/Transactions";
 
 const App = () => {
+  console.log("env variable: ", import.meta.env.SOME_KEY);
   return (
     // <h2>hi there</h2>
 
     <Switch>
+      <Route exact path="/">
+        <Login />
+      </Route>
+
       <Route exact path="/">
         <Login />
       </Route>

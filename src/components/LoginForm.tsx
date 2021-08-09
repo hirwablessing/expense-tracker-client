@@ -1,7 +1,26 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+import { login } from "../services/Authentication.service";
 
 export default function LoginForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+
+  const loginUser = async (): Promise<any> => {
+    try {
+      let loggedInUser = await login({
+        password: password,
+        email: email,
+      });
+    } catch (error) {
+      console.warn(error.message);
+    }
+  };
+
+  useEffect(() => {
+    loginUser();
+  }, []);
+
   return (
     <div className="flex items-center min-h-screen bg-white dark:bg-gray-900">
       <div className="container mx-auto">
@@ -26,9 +45,11 @@ export default function LoginForm() {
                 <input
                   type="email"
                   name="email"
-                  id="email"
+                  value={email}
                   placeholder="you@company.com"
+                  onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                  required
                 />
               </div>
               <div className="mb-6">
@@ -43,9 +64,11 @@ export default function LoginForm() {
                 <input
                   type="password"
                   name="password"
-                  id="password"
+                  value={password}
                   placeholder="Your Password"
+                  onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                  required
                 />
               </div>
               <div className="mb-6">
