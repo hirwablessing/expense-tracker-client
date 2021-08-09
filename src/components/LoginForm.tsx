@@ -77,7 +77,7 @@ export default function LoginForm() {
                   className="w-full px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
                   onClick={loginUser}
                 >
-                  Sign up
+                  Sign in
                 </button>
               </div>
               <p className="text-sm text-center text-gray-400">
