@@ -1,5 +1,5 @@
 import React from "react";
-import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
+import { Route, Switch } from "react-router-dom";
 import Expenses from "./views/Expenses";
 
 import Home from "./views/Home";
@@ -11,29 +11,27 @@ const App = () => {
   return (
     // <h2>hi there</h2>
 
-    <Router>
-      <Switch>
-        <Route exact path="/">
-          <Login />
-        </Route>
+    <Switch>
+      <Route exact path="/">
+        <Login />
+      </Route>
 
-        <Route exact path="/register">
-          <Register />
-        </Route>
+      <Route exact path="/register">
+        <Register />
+      </Route>
 
-        <Route exact path="/home">
-          <Home />
-        </Route>
+      <Route exact path="/home">
+        <Home />
+      </Route>
 
-        <Route exact path="/expenses">
-          <Expenses />
-        </Route>
+      <Route exact path="/expenses">
+        <Expenses />
+      </Route>
 
-        <Route exact path="/transactions">
-          <Transactions />
-        </Route>
-      </Switch>
-    </Router>
+      <Route exact path="/transactions">
+        <Transactions />
+      </Route>
+    </Switch>
   );
 };
 
