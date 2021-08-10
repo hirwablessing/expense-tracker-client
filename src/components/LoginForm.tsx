@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../services/Authentication.service";
+import jwt_decode from "jwt-decode";
 
 export default function LoginForm() {
   const [email, setEmail] = useState("");
@@ -12,6 +13,9 @@ export default function LoginForm() {
         password: password,
         email: email,
       });
+
+      let userDecodedInfo = jwt_decode(loggedInUser?.token);
+      console.log("decoded data: ", userDecodedInfo);
     } catch (error) {
       console.warn(error.message);
     }

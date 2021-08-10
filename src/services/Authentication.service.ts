@@ -8,7 +8,7 @@ interface LoginData {
 
 const login = async ({ email, password }: LoginData) => {
   let user = await axios.post(`${BASE_URL}users/login`, { email, password });
-  console.log(user.data);
+  return user.data;
 };
 
 export { login };
