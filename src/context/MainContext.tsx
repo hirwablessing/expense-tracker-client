@@ -15,7 +15,7 @@ export const MainContext: React.FC = ({ children }) => {
   //   function to logout
   const logout = () => {
     localStorage.clear();
-    router.push("/");
+    router.push("/login");
   };
 
   useEffect(() => {

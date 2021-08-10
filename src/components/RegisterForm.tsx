@@ -85,7 +85,7 @@ export default function RegisterForm() {
               <p className="text-sm text-center text-gray-400">
                 Already have an accout?{" "}
                 <Link
-                  to="/"
+                  to="/login"
                   className="text-[#ec6448] focus:outline-none focus:underline focus:text-red-100 dark: focus:border-[#ec6448]"
                 >
                   Sign in

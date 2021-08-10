@@ -1,11 +1,13 @@
 /* eslint-disable @next/next/no-img-element */
 
-import React from "react";
+import React, { useContext } from "react";
 import parse from "html-react-parser";
 import { NavLink, useLocation } from "react-router-dom";
 import { MenuLinks } from "../../resources/MenuLinks";
+import { UserContext } from "../../context/UserContext";
 
 export default function Sidebar() {
+  const { logout } = useContext(UserContext);
   interface MenuLinks {
     name: string;
     path: string;
@@ -21,7 +23,6 @@ export default function Sidebar() {
 
       <div className="app-menu mt-10 text-sm flex flex-col items-center justify-center">
         {MenuLinks?.map((link: MenuLinks) => {
-          console.log(router.pathname === link.path);
           return (
             <NavLink
               to={link.path}
@@ -37,7 +38,10 @@ export default function Sidebar() {
             </NavLink>
           );
         })}
-        <button className="bg-[#ec6448] text-center text-white rounded p-2 w-52 md:absolute md:bottom-0 my-10">
+        <button
+          className="bg-[#ec6448] text-center text-white rounded p-2 w-52 md:absolute md:bottom-0 my-10"
+          onClick={logout}
+        >
           Logout
         </button>
       </div>
