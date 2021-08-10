@@ -5,6 +5,12 @@ export interface IUser {
   password: string;
 }
 
+export interface AuthenticationData {
+  names?: string;
+  email: string;
+  password: string;
+}
+
 export interface DashboardProps {
   title?: string;
   subtitle?: string;

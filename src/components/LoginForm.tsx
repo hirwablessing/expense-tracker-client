@@ -4,14 +4,14 @@ import { login } from "../services/Authentication.service";
 import jwt_decode from "jwt-decode";
 import { IUser } from "../types";
 import { UserContext } from "../context/UserContext";
+import { setupUser } from "../utils/setupUser";
 
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const history = useHistory();
 
-  const { setUser, user } = useContext(UserContext);
-  console.log("from context", user);
+  const { setUser } = useContext(UserContext);
 
   const loginUser = async (): Promise<any> => {
     try {
@@ -20,28 +20,11 @@ export default function LoginForm() {
         email: userEmail,
       });
 
-      let userDecodedInfo: IUser = jwt_decode(loggedInUser?.token);
-      // let {names,email,password} = userDecodedInfo;
-      console.log("decoded: ", userDecodedInfo);
-      const newUser: IUser = (({ _id, names, email, password }) => ({
-        _id,
-        names,
-        email,
-        password,
-      }))(userDecodedInfo);
-
-      setUser(newUser);
-
-      localStorage.setItem("user", JSON.stringify(newUser));
-      history.push("/home");
+      setupUser(loggedInUser);
     } catch (error) {
       console.warn(error.message);
     }
   };
-
-  // useEffect(() => {
-  //   loginUser();
-  // }, []);
 
   return (
     <div className="flex items-center min-h-screen bg-white dark:bg-gray-900">

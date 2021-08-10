@@ -1,10 +1,30 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
+import jwt_decode from "jwt-decode";
+
+import { IUser } from "../types";
+import { register } from "../services/Authentication.service";
+import { setupUser } from "../utils/setupUser";
 
 export default function RegisterForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userEmail, setEmail] = useState("");
+  const [userPassword, setPassword] = useState("");
   const [name, setName] = useState("");
+  const history = useHistory();
+
+  const registerUser = async (): Promise<any> => {
+    try {
+      let loggedInUser = await register({
+        names: name,
+        password: userPassword,
+        email: userEmail,
+      });
+
+      setupUser(loggedInUser);
+    } catch (error) {
+      console.warn(error.message);
+    }
+  };
 
   return (
     <div className="flex items-center min-h-screen bg-white dark:bg-gray-900">
@@ -48,7 +68,7 @@ export default function RegisterForm() {
                 <input
                   type="email"
                   name="email"
-                  value={email}
+                  value={userEmail}
                   placeholder="you@company.com"
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
@@ -67,7 +87,7 @@ export default function RegisterForm() {
                 <input
                   type="password"
                   name="password"
-                  value={password}
+                  value={userPassword}
                   placeholder="Your Password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
@@ -78,6 +98,7 @@ export default function RegisterForm() {
                 <button
                   type="button"
                   className="w-full px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
+                  onClick={registerUser}
                 >
                   Sign in
                 </button>

@@ -1,14 +1,50 @@
 import axios from "axios";
 import BASE_URL from "../base";
+import { AuthenticationData } from "../types";
 
-interface LoginData {
-  email: string;
-  password: string;
-}
-
-const login = async ({ email, password }: LoginData) => {
+const login = async ({ email, password }: AuthenticationData) => {
   let user = await axios.post(`${BASE_URL}users/login`, { email, password });
   return user.data;
 };
 
-export { login };
+const register = async ({ names, email, password }: AuthenticationData) => {
+  let user = await axios.post(`${BASE_URL}users/login`, {
+    names,
+    email,
+    password,
+  });
+  return user.data;
+};
+
+const postTransactin = async () => {
+  // let user = await axios.post(`${BASE_URL}users/login`, { email, password });
+  // return user.data;
+
+  const token =
+    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTEwMDM4ZjgxY2Q3YjViYTA4MWYzMjgiLCJuYW1lcyI6IkhpcndhIEJsZXNzaW5nIiwiZW1haWwiOiJibGVzc2luZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRGcElOdUJ3ZUFqT2E0Z2NLZTZESXl1OGEwSHRadmpUQ1dtR0tQR2ltNzBjTmJYaS91V2QxVyIsImlhdCI6MTYyODYxMjM3NiwiZXhwIjozLjYwMDAwMDAwMDAwMDAxNjZlKzIzfQ.yNsEJ-4B4b3kfaM4N2l-NbxEam7tSIXMs5kfmiDIXgs";
+
+  axios
+    .post(
+      `${BASE_URL}transactions/`,
+      {
+        amount: 10000,
+        type: "income",
+        mode: "Bank",
+        note: "This is the money I gained on selling drinks",
+      },
+      {
+        headers: {
+          "Content-Type": "application/json;charset=UTF-8",
+          Authorization: `Bearer ${token}`,
+        },
+      }
+    )
+    .then((response) => {
+      console.log(response.data);
+    })
+    .catch((error) => {
+      console.log(error.message);
+    });
+};
+
+export { login, register, postTransactin };
