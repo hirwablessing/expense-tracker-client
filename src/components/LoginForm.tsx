@@ -1,13 +1,18 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/Authentication.service";
 import jwt_decode from "jwt-decode";
 import { IUser } from "../types";
+import { MainContext } from "../context/MainContext";
+import { UserContext, UserGlobalContext } from "../context/UserContext";
 
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const history = useHistory();
+
+  const { setUser, user } = useContext(UserContext);
+  console.log("from context", user);
 
   const loginUser = async (): Promise<any> => {
     try {
@@ -23,6 +28,7 @@ export default function LoginForm() {
         email,
         password,
       }))(userDecodedInfo);
+      setUser(newUser);
 
       localStorage.setItem("user", JSON.stringify(newUser));
       history.push("/home");
