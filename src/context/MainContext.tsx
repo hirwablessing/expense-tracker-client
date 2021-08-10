@@ -6,6 +6,7 @@ import { UserContext } from "./UserContext";
 export const MainContext: React.FC = ({ children }) => {
   const router = useHistory();
   const [user, setUser] = useState<IUser>({
+    _id: "",
     names: "",
     email: "",
     password: "",
@@ -18,11 +19,11 @@ export const MainContext: React.FC = ({ children }) => {
   };
 
   useEffect(() => {
-    let data: any = JSON.parse(localStorage.getItem("user") || "{}");
+    let data: IUser = JSON.parse(localStorage.getItem("user") || "{}");
     setUser(data);
 
     if (!data?._id) {
-      router.push("/");
+      router.push("/login");
     }
   }, []);
 

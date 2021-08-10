@@ -8,7 +8,7 @@ export type GlobalContent = {
 };
 
 export const UserContext = createContext<GlobalContent>({
-  user: { names: "", email: "", password: "" },
+  user: { _id: "", names: "", email: "", password: "" },
   setUser: () => {},
   logout: () => {},
 });

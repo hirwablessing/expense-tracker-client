@@ -1,10 +1,9 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/Authentication.service";
 import jwt_decode from "jwt-decode";
 import { IUser } from "../types";
-import { MainContext } from "../context/MainContext";
-import { UserContext, UserGlobalContext } from "../context/UserContext";
+import { UserContext } from "../context/UserContext";
 
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
@@ -23,11 +22,14 @@ export default function LoginForm() {
 
       let userDecodedInfo: IUser = jwt_decode(loggedInUser?.token);
       // let {names,email,password} = userDecodedInfo;
-      const newUser: IUser = (({ names, email, password }) => ({
+      console.log("decoded: ", userDecodedInfo);
+      const newUser: IUser = (({ _id, names, email, password }) => ({
+        _id,
         names,
         email,
         password,
       }))(userDecodedInfo);
+
       setUser(newUser);
 
       localStorage.setItem("user", JSON.stringify(newUser));
