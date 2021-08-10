@@ -2,20 +2,36 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { login } from "../services/Authentication.service";
 import jwt_decode from "jwt-decode";
+import { IUser } from "../types";
 
 export default function LoginForm() {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [userEmail, setEmail] = useState("");
+  const [userPassword, setPassword] = useState("");
 
   const loginUser = async (): Promise<any> => {
     try {
       let loggedInUser = await login({
-        password: password,
-        email: email,
+        password: userPassword,
+        email: userEmail,
       });
 
-      let userDecodedInfo = jwt_decode(loggedInUser?.token);
-      console.log("decoded data: ", userDecodedInfo);
+      let userDecodedInfo: IUser = jwt_decode(loggedInUser?.token);
+      // let {names,email,password} = userDecodedInfo;
+      const newUser: IUser = (({ names, email, password }) => ({
+        names,
+        email,
+        password,
+      }))(userDecodedInfo);
+
+      console.log(newUser);
+
+      // setUser()
+
+      // var rect = { x: 0, y: 10, width: 15, height: 20 };
+
+      // Destructuring assignment
+      // var {x, y, width, height} = rect;
+      // console.log(x, y, width, height);
     } catch (error) {
       console.warn(error.message);
     }
@@ -49,7 +65,7 @@ export default function LoginForm() {
                 <input
                   type="email"
                   name="email"
-                  value={email}
+                  value={userEmail}
                   placeholder="you@company.com"
                   onChange={(e) => setEmail(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
@@ -68,7 +84,7 @@ export default function LoginForm() {
                 <input
                   type="password"
                   name="password"
-                  value={password}
+                  value={userPassword}
                   placeholder="Your Password"
                   onChange={(e) => setPassword(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
