@@ -1,11 +1,11 @@
 import React from "react";
-import ExpenseChart from "../components/ExpenseChart";
+import IncomeChart from "../components/IncomeChart";
 import Dashboard from "../layouts/Dashboard";
 
-export default function Expenses() {
+export default function Incomes() {
   return (
     <Dashboard>
-      <ExpenseChart />
+      <IncomeChart />
     </Dashboard>
   );
 }

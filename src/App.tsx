@@ -3,6 +3,7 @@ import { Route, Switch } from "react-router-dom";
 import Expenses from "./views/Expenses";
 
 import Home from "./views/Home";
+import Incomes from "./views/Incomes";
 import Login from "./views/Login";
 import Register from "./views/Register";
 import Transactions from "./views/Transactions";
@@ -17,7 +18,11 @@ const App = () => {
         <Login />
       </Route>
 
-      <Route exact path="/">
+      <Route exact path="/login">
+        <Login />
+      </Route>
+
+      <Route exact path="/income">
         <Login />
       </Route>
 
@@ -27,6 +32,10 @@ const App = () => {
 
       <Route exact path="/home">
         <Home />
+      </Route>
+
+      <Route exact path="/incomes">
+        <Incomes />
       </Route>
 
       <Route exact path="/expenses">

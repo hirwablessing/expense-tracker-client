@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/Authentication.service";
 import jwt_decode from "jwt-decode";
 import { IUser } from "../types";
@@ -7,6 +7,7 @@ import { IUser } from "../types";
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
+  const history = useHistory();
 
   const loginUser = async (): Promise<any> => {
     try {
@@ -23,15 +24,8 @@ export default function LoginForm() {
         password,
       }))(userDecodedInfo);
 
-      console.log(newUser);
-
-      // setUser()
-
-      // var rect = { x: 0, y: 10, width: 15, height: 20 };
-
-      // Destructuring assignment
-      // var {x, y, width, height} = rect;
-      // console.log(x, y, width, height);
+      localStorage.setItem("user", JSON.stringify(newUser));
+      history.push("/home");
     } catch (error) {
       console.warn(error.message);
     }

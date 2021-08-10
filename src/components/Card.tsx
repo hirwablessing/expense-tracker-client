@@ -1,4 +1,5 @@
 import React from "react";
+import { CardProps } from "../types";
 
 function Card(props: CardProps) {
   return (
