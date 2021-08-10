@@ -8,7 +8,7 @@ const login = async ({ email, password }: AuthenticationData) => {
 };
 
 const register = async ({ names, email, password }: AuthenticationData) => {
-  let user = await axios.post(`${BASE_URL}users/login`, {
+  let user = await axios.post(`${BASE_URL}users/register`, {
     names,
     email,
     password,

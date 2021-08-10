@@ -9,9 +9,6 @@ import { setupUser } from "../utils/setupUser";
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
-  const history = useHistory();
-
-  const { setUser } = useContext(UserContext);
 
   const loginUser = async (): Promise<any> => {
     try {
@@ -22,7 +19,7 @@ export default function LoginForm() {
 
       setupUser(loggedInUser);
     } catch (error) {
-      console.warn(error.message);
+      alert(error.message);
     }
   };
 

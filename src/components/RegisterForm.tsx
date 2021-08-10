@@ -10,7 +10,6 @@ export default function RegisterForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const [name, setName] = useState("");
-  const history = useHistory();
 
   const registerUser = async (): Promise<any> => {
     try {
@@ -22,7 +21,7 @@ export default function RegisterForm() {
 
       setupUser(loggedInUser);
     } catch (error) {
-      console.warn(error.message);
+      alert(error.message);
     }
   };
 
