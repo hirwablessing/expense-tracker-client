@@ -1,8 +1,5 @@
 import React from "react";
-export interface NavbarProps {
-  title: string;
-  subtitle: string;
-}
+import { NavbarProps } from "../../types";
 
 function Navbar(props: NavbarProps) {
   const profile = {

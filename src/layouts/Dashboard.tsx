@@ -2,12 +2,7 @@ import React from "react";
 
 import Navbar from "../components/reusable/Navbar";
 import Sidebar from "../components/reusable/Sidebar";
-
-export interface DashboardProps {
-  title?: string;
-  subtitle?: string;
-  children: React.ReactNode;
-}
+import { DashboardProps } from "../types";
 
 function Dashboard(props: DashboardProps) {
   return (

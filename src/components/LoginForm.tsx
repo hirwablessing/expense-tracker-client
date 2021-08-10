@@ -17,9 +17,9 @@ export default function LoginForm() {
     }
   };
 
-  useEffect(() => {
-    loginUser();
-  }, []);
+  // useEffect(() => {
+  //   loginUser();
+  // }, []);
 
   return (
     <div className="flex items-center min-h-screen bg-white dark:bg-gray-900">

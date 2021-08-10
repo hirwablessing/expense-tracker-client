@@ -1,10 +1,4 @@
 import React from "react";
-interface CardProps {
-  total: number;
-  title: string;
-  img: string;
-  bgColor: string;
-}
 
 function Card(props: CardProps) {
   return (
