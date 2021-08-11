@@ -1,6 +1,6 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { login } from "../services/Authentication.service";
+import { login } from "../services/all.service";
 import { UserContext } from "../context/UserContext";
 import { setupUser } from "../utils/setupUser";
 

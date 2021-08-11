@@ -2,7 +2,7 @@ import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-import { register } from "../services/Authentication.service";
+import { register } from "../services/all.service";
 import { setupUser } from "../utils/setupUser";
 
 export default function RegisterForm() {

@@ -46,6 +46,11 @@ const getTotalExpenseByMonth = async (): Promise<[]> => {
   return total.data.data;
 };
 
+const getAllTransactions = async (): Promise<[]> => {
+  let transactions = await axios.get("transactions/");
+  return transactions.data.data;
+};
+
 const postTransaction = async () => {
   // let user = await axios.post(`${BASE_URL}users/login`, { email, password });
   // return user.data;
@@ -85,4 +90,5 @@ export {
   getTotalExpenses,
   getTotalExpenseByMonth,
   getTotalTransactions,
+  getAllTransactions,
 };

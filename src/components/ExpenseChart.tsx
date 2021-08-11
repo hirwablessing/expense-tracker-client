@@ -3,7 +3,7 @@ import { Pie } from "react-chartjs-2";
 import {
   getTotalExpenseByMonth,
   getTotalIncomeByMonth,
-} from "../services/Authentication.service";
+} from "../services/all.service";
 
 // const globalAny: any = global;
 

@@ -1,5 +1,18 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { getAllTransactions } from "../services/all.service";
 export default function TransactionList() {
+  const [transactions, setTransactions] = useState<any>();
+
+  useEffect(() => {
+    const getTransactions = async (): Promise<void> => {
+      let transactions = await getAllTransactions();
+
+      setTransactions(transactions);
+    };
+
+    getTransactions();
+  }, []);
+
   return (
     <div className="container mx-auto p-6">
       <div className="w-full mb-8 rounded-lg shadow-lg">
@@ -15,26 +28,40 @@ export default function TransactionList() {
               </tr>
             </thead>
             <tbody className="bg-white">
-              <tr className="text-gray-700">
-                <td className="px-4 py-3 text-sm border">
-                  <p className="font-semibold text-black">1.</p>
-                </td>
-                <td className="px-4 py-3 border">
-                  <div className="flex items-center text-sm">
-                    <div>
-                      <p className="font-semibold text-black">School fees</p>
+              {transactions?.map((transaction: any, index: number) => (
+                <tr className="text-gray-700">
+                  <td className="px-4 py-3 text-sm border">
+                    <p className="font-semibold text-black">{index + 1}</p>
+                  </td>
+                  <td className="px-4 py-3 border">
+                    <div className="flex items-center text-sm">
+                      <div>
+                        <p className="font-semibold text-black">
+                          {transaction.note}
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                </td>
-                <td className="px-4 py-3 text-ms font-semibold border">22</td>
-                <td className="px-4 py-3 text-xs border">
-                  <span className="px-2 py-1 font-semibold leading-tight text-green-700 bg-green-100 rounded-sm">
-                    {" "}
-                    Income{" "}
-                  </span>
-                </td>
-                <td className="px-4 py-3 text-sm border">6/4/2000</td>
-              </tr>
+                  </td>
+                  <td className="px-4 py-3 text-ms font-semibold border">
+                    {transaction.amount}
+                  </td>
+                  <td className="px-4 py-3 text-xs border">
+                    <span
+                      className={`px-2 py-1 font-semibold leading-tight rounded ${
+                        transaction.type === "income"
+                          ? "text-green-700 bg-green-100"
+                          : "text-red-700 bg-red-100"
+                      }`}
+                    >
+                      {" "}
+                      {transaction.type}
+                    </span>
+                  </td>
+                  <td className="px-4 py-3 text-sm border">
+                    {transaction.date}
+                  </td>
+                </tr>
+              ))}
             </tbody>
           </table>
         </div>
