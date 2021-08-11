@@ -6,7 +6,7 @@ import {
   getTotalExpenses,
   getTotalIncomes,
   getTotalTransactions,
-} from "../services/Authentication.service";
+} from "../services/all.service";
 
 export default function Home() {
   const [totalIncomes, setIncomes] = useState<number>(0);

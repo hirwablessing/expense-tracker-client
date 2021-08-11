@@ -80,7 +80,7 @@ export default function LoginForm() {
                 <button
                   type="button"
                   className="w-full px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
-                  onClick={loginUser}
+                  onSubmit={loginUser}
                 >
                   Sign in
                 </button>

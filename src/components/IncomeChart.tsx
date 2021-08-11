@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { Pie, defaults } from "react-chartjs-2";
-import { getTotalIncomeByMonth } from "../services/Authentication.service";
+import { getTotalIncomeByMonth } from "../services/all.service";
 
 // const globalAny: any = global;
 

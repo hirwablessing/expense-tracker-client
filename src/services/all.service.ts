@@ -1,5 +1,5 @@
 import axios from "axios";
-import { AuthenticationData } from "../types";
+import { AuthenticationData, TransactionI } from "../types";
 
 axios.defaults.headers.common = {
   Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "")}`,
@@ -51,34 +51,14 @@ const getAllTransactions = async (): Promise<[]> => {
   return transactions.data.data;
 };
 
-const postTransaction = async () => {
-  // let user = await axios.post(`${BASE_URL}users/login`, { email, password });
-  // return user.data;
-
-  const token =
-    "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTEwMDM4ZjgxY2Q3YjViYTA4MWYzMjgiLCJuYW1lcyI6IkhpcndhIEJsZXNzaW5nIiwiZW1haWwiOiJibGVzc2luZ0BnbWFpbC5jb20iLCJwYXNzd29yZCI6IiQyYSQxMCRGcElOdUJ3ZUFqT2E0Z2NLZTZESXl1OGEwSHRadmpUQ1dtR0tQR2ltNzBjTmJYaS91V2QxVyIsImlhdCI6MTYyODYxMjM3NiwiZXhwIjozLjYwMDAwMDAwMDAwMDAxNjZlKzIzfQ.yNsEJ-4B4b3kfaM4N2l-NbxEam7tSIXMs5kfmiDIXgs";
-
+const postTransaction = async (body: TransactionI): Promise<void> => {
   axios
-    .post(
-      `transactions/`,
-      {
-        amount: 10000,
-        type: "income",
-        mode: "Bank",
-        note: "This is the money I gained on selling drinks",
-      },
-      {
-        headers: {
-          "Content-Type": "application/json;charset=UTF-8",
-          Authorization: `Bearer ${token}`,
-        },
-      }
-    )
+    .post("/transactions", body)
     .then((response) => {
       console.log(response.data);
     })
     .catch((error) => {
-      console.log(error.message);
+      alert(error.message);
     });
 };
 
@@ -91,4 +71,5 @@ export {
   getTotalExpenseByMonth,
   getTotalTransactions,
   getAllTransactions,
+  postTransaction,
 };

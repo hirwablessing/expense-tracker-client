@@ -1,29 +1,27 @@
 import React, { useContext, useState } from "react";
-import { Link, useHistory } from "react-router-dom";
+import { useHistory } from "react-router-dom";
 import { UserContext } from "../context/UserContext";
 
-import { register } from "../services/all.service";
+import { postTransaction } from "../services/all.service";
 import { setupUser } from "../utils/setupUser";
 
-export default function RegisterForm() {
-  const [userEmail, setEmail] = useState("");
-  const [userPassword, setPassword] = useState("");
-  const [name, setName] = useState("");
+export default function AddTransaction() {
+  const [amount, setAmount] = useState<string>("");
+  const [type, setType] = useState<string>("");
+  const [mode, setMode] = useState<string>("");
+  const [note, setNote] = useState<string>("");
   const history = useHistory();
-  const { setUser } = useContext(UserContext);
 
-  const registerUser = async (): Promise<void> => {
+  const addTransaction = async (): Promise<void> => {
     try {
-      let loggedInUser = await register({
-        names: name,
-        password: userPassword,
-        email: userEmail,
+      await postTransaction({
+        amount,
+        type,
+        mode,
+        note,
       });
 
-      let newUser = setupUser(loggedInUser);
-
-      setUser(await newUser);
-      history.push("/home");
+      history.push("/transactions");
     } catch (error) {
       alert(error.message);
     }
@@ -45,17 +43,17 @@ export default function RegisterForm() {
             <form action="">
               <div className="mb-6">
                 <label
-                  htmlFor="text"
-                  className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                  htmlFor="amount"
+                  className="block mb-2 text-sm text-gray-600 capitalize dark:text-gray-400"
                 >
-                  Names
+                  amount
                 </label>
                 <input
-                  type="email"
-                  name="email"
-                  value={name}
+                  type="text"
+                  name="amount"
+                  value={amount}
                   placeholder="John Doe"
-                  onChange={(e) => setName(e.target.value)}
+                  onChange={(e) => setAmount(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   required
                 />
@@ -63,17 +61,17 @@ export default function RegisterForm() {
 
               <div className="mb-6">
                 <label
-                  htmlFor="email"
-                  className="block mb-2 text-sm text-gray-600 dark:text-gray-400"
+                  htmlFor="type"
+                  className="block mb-2 text-sm capitalize text-gray-600 dark:text-gray-400"
                 >
-                  Email Address
+                  type
                 </label>
                 <input
-                  type="email"
-                  name="email"
-                  value={userEmail}
-                  placeholder="you@company.com"
-                  onChange={(e) => setEmail(e.target.value)}
+                  type="text"
+                  name="type"
+                  value={type}
+                  placeholder="Income"
+                  onChange={(e) => setType(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   required
                 />
@@ -81,41 +79,50 @@ export default function RegisterForm() {
               <div className="mb-6">
                 <div className="mb-2">
                   <label
-                    htmlFor="password"
-                    className="text-sm text-gray-600 dark:text-gray-400"
+                    htmlFor="mode"
+                    className="text-sm capitalize text-gray-600 dark:text-gray-400"
                   >
-                    Password
+                    mode
                   </label>
                 </div>
                 <input
-                  type="password"
-                  name="password"
-                  value={userPassword}
-                  placeholder="Your Password"
-                  onChange={(e) => setPassword(e.target.value)}
+                  type="text"
+                  name="mode"
+                  value={mode}
+                  placeholder="Cash,Bank,...."
+                  onChange={(e) => setMode(e.target.value)}
                   className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
                   required
                 />
               </div>
+
+              <div className="mb-6">
+                <label
+                  htmlFor="type"
+                  className="block mb-2 text-sm capitalize text-gray-600 dark:text-gray-400"
+                >
+                  type
+                </label>
+                <input
+                  type="text"
+                  name="note"
+                  value={note}
+                  placeholder="Donation"
+                  onChange={(e) => setNote(e.target.value)}
+                  className="w-full px-3 py-2 placeholder-gray-300 border border-gray-300 rounded-md focus:outline-none focus:ring-red-100 focus:border-[#ec6448]  dark:bg-gray-700 dark:text-white dark:placeholder-gray-500 dark:border-gray-600 dark:focus:ring-gray-900 dark:focus:border-gray-500"
+                  required
+                />
+              </div>
+
               <div className="mb-6">
                 <button
                   type="button"
-                  className="w-full px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
-                  onSubmit={registerUser}
+                  className="w-full capitalize px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
+                  onClick={addTransaction}
                 >
-                  Sign up
+                  save
                 </button>
               </div>
-              <p className="text-sm text-center text-gray-400">
-                Already have an accout?{" "}
-                <Link
-                  to="/login"
-                  className="text-[#ec6448] focus:outline-none focus:underline focus:text-red-100 dark: focus:border-[#ec6448]"
-                >
-                  Sign up
-                </Link>
-                .
-              </p>
             </form>
           </div>
         </div>

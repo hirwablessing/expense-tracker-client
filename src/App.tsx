@@ -1,6 +1,8 @@
 import React, { useContext } from "react";
 import { Route, Switch } from "react-router-dom";
+import AddTransaction from "./components/AddTransaction";
 import { UserContext } from "./context/UserContext";
+import Dashboard from "./layouts/Dashboard";
 import Expenses from "./views/Expenses";
 
 import Home from "./views/Home";
@@ -44,6 +46,12 @@ const App = () => {
 
           <Route exact path="/transactions">
             <Transactions />
+          </Route>
+
+          <Route exact path="/transactions/add">
+            <Dashboard>
+              <AddTransaction />
+            </Dashboard>
           </Route>
         </>
       )}

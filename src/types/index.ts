@@ -11,6 +11,13 @@ export interface AuthenticationData {
   password: string;
 }
 
+export interface TransactionI {
+  amount: string;
+  type: string;
+  mode: string;
+  note: string;
+}
+
 export interface DashboardProps {
   title?: string;
   subtitle?: string;
