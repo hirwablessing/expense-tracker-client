@@ -36,6 +36,11 @@ const getTotalTransactions = async (): Promise<number> => {
   return total.data.data;
 };
 
+const getTotalIncomeByMonth = async (): Promise<[]> => {
+  let total = await axios.get("transactions/incomes/total-month");
+  return total.data.data;
+};
+
 const postTransaction = async () => {
   // let user = await axios.post(`${BASE_URL}users/login`, { email, password });
   // return user.data;
@@ -71,6 +76,7 @@ export {
   login,
   register,
   getTotalIncomes,
+  getTotalIncomeByMonth,
   getTotalExpenses,
   getTotalTransactions,
 };

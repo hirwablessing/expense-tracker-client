@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { Pie, defaults } from "react-chartjs-2";
+import { getTotalIncomeByMonth } from "../services/Authentication.service";
 
 // const globalAny: any = global;
 
@@ -7,6 +8,23 @@ import { Pie, defaults } from "react-chartjs-2";
 // globalAny.global.legend.position = "bottom";
 
 export default function IncomeChart() {
+  const [totalIncome, setIncomes] = useState([]);
+
+  useEffect(() => {
+    const getIncomes = async (): Promise<void> => {
+      let incomes = await getTotalIncomeByMonth();
+
+      let newArr: any = Array(12).fill(0);
+      incomes.forEach((x: any) => {
+        newArr[x.month] = x.total;
+      });
+
+      setIncomes(newArr);
+    };
+
+    getIncomes();
+  }, []);
+
   return (
     <div>
       <Pie
@@ -28,7 +46,7 @@ export default function IncomeChart() {
           datasets: [
             {
               label: "# of income",
-              data: [12, 19, 3, 5, 2, 3, 43, 21, 12, 10, 31, 20],
+              data: totalIncome,
               backgroundColor: [
                 "rgba(255, 99, 132, 0.2)",
                 "rgba(54, 162, 235, 0.2)",
