@@ -30,12 +30,11 @@ export default function Home() {
   return (
     <Dashboard title="Expenses" subtitle="Statistics">
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-10 mb-10 p-5 lg:p-0">
-        <Card total={totalIncomes} title="Incomes" img="" bgColor="#ec6448" />
-        <Card total={totalExpenses} title="Expenses" img="" bgColor="#ec6448" />
+        <Card total={totalIncomes} title="Incomes" bgColor="#ec6448" />
+        <Card total={totalExpenses} title="Expenses" bgColor="#ec6448" />
         <Card
           total={totalTransactions}
           title="Total Transactions"
-          img=""
           bgColor="#ec6448"
         />
       </div>

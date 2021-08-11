@@ -17,7 +17,7 @@ export default function Sidebar() {
   const router = useLocation();
   return (
     <div className="block shadow bg-white p-5 rounded h-screen">
-      <div className="app-header flex gap-2 items-center">
+      <div className="app-header flex gap-2 ">
         <h2>logo</h2>
       </div>
 
@@ -39,7 +39,7 @@ export default function Sidebar() {
           );
         })}
         <button
-          className="bg-[#ec6448] text-center text-white rounded p-2 w-52 md:absolute md:bottom-0 my-10"
+          className="bg-[#ec6448] text-center text-white rounded p-2 w-52  my-20 justify-self-start"
           onClick={logout}
         >
           Logout

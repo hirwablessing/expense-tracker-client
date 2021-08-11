@@ -1,15 +1,19 @@
 import React from "react";
+import { useLocation } from "react-router-dom";
 import { NavbarProps } from "../../types";
 
 export default function Navbar(props: NavbarProps) {
   const profile = JSON.parse(localStorage.getItem("user") || "{}");
+  const location = useLocation();
 
   return (
     <div className="bg-white rounded p-3 border flex gap-5 items-center">
       <div className="w-1/2">
         <div>
-          <h1 className="block font-bold text-lg">{props.title}</h1>
-          <h2 className="text-gray-400 text-sm">{props.subtitle}</h2>
+          <h1 className="block font-bold text-lg capitalize">
+            {location.pathname.substring(1)}
+          </h1>
+          <h2 className="text-gray-400 text-sm">Information</h2>
         </div>
       </div>
       <div className="w-1/2">

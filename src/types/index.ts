@@ -25,6 +25,5 @@ export interface NavbarProps {
 export interface CardProps {
   total: number;
   title: string;
-  img: string;
   bgColor: string;
 }
