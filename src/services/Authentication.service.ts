@@ -16,7 +16,7 @@ const register = async ({ names, email, password }: AuthenticationData) => {
   return user.data;
 };
 
-const postTransactin = async () => {
+const postTransaction = async () => {
   // let user = await axios.post(`${BASE_URL}users/login`, { email, password });
   // return user.data;
 
@@ -47,4 +47,4 @@ const postTransactin = async () => {
     });
 };
 
-export { login, register, postTransactin };
+export { login, register, postTransaction };

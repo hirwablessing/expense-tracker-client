@@ -19,14 +19,15 @@ const App = () => {
       <Route exact path="/login">
         <Login />
       </Route>
+
+      <Route exact path="/register">
+        <Register />
+      </Route>
+
       {user?._id && (
         <>
           <Route exact path="/income">
             <Login />
-          </Route>
-
-          <Route exact path="/register">
-            <Register />
           </Route>
 
           <Route exact path="/home">

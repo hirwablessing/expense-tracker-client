@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import jwt_decode from "jwt-decode";
+import { UserContext } from "../context/UserContext";
 
-import { IUser } from "../types";
 import { register } from "../services/Authentication.service";
 import { setupUser } from "../utils/setupUser";
 
@@ -10,8 +9,10 @@ export default function RegisterForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
   const [name, setName] = useState("");
+  const history = useHistory();
+  const { setUser } = useContext(UserContext);
 
-  const registerUser = async (): Promise<any> => {
+  const registerUser = async (): Promise<void> => {
     try {
       let loggedInUser = await register({
         names: name,
@@ -19,7 +20,10 @@ export default function RegisterForm() {
         email: userEmail,
       });
 
-      setupUser(loggedInUser);
+      let newUser = setupUser(loggedInUser);
+
+      setUser(await newUser);
+      history.push("/home");
     } catch (error) {
       alert(error.message);
     }
@@ -99,7 +103,7 @@ export default function RegisterForm() {
                   className="w-full px-3 py-4 text-white bg-[#ec6448] rounded-md focus:bg-[#ec6448] focus:outline-none"
                   onClick={registerUser}
                 >
-                  Sign in
+                  Sign up
                 </button>
               </div>
               <p className="text-sm text-center text-gray-400">
@@ -108,7 +112,7 @@ export default function RegisterForm() {
                   to="/login"
                   className="text-[#ec6448] focus:outline-none focus:underline focus:text-red-100 dark: focus:border-[#ec6448]"
                 >
-                  Sign in
+                  Sign up
                 </Link>
                 .
               </p>

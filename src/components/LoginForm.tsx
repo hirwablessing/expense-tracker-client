@@ -1,14 +1,14 @@
 import React, { useContext, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 import { login } from "../services/Authentication.service";
-import jwt_decode from "jwt-decode";
-import { IUser } from "../types";
 import { UserContext } from "../context/UserContext";
 import { setupUser } from "../utils/setupUser";
 
 export default function LoginForm() {
   const [userEmail, setEmail] = useState("");
   const [userPassword, setPassword] = useState("");
+  const { setUser } = useContext(UserContext);
+  const history = useHistory();
 
   const loginUser = async (): Promise<any> => {
     try {
@@ -17,7 +17,10 @@ export default function LoginForm() {
         email: userEmail,
       });
 
-      setupUser(loggedInUser);
+      let newUser = setupUser(loggedInUser);
+
+      setUser(await newUser);
+      history.push("/home");
     } catch (error) {
       alert(error.message);
     }
