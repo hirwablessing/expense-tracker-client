@@ -1,19 +1,28 @@
 import axios from "axios";
-import BASE_URL from "../base";
 import { AuthenticationData } from "../types";
 
+axios.defaults.headers.common = {
+  Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "")}`,
+};
+axios.defaults.baseURL = "http://localhost:5000/api/";
+
 const login = async ({ email, password }: AuthenticationData) => {
-  let user = await axios.post(`${BASE_URL}users/login`, { email, password });
+  let user = await axios.post(`users/login`, { email, password });
   return user.data;
 };
 
 const register = async ({ names, email, password }: AuthenticationData) => {
-  let user = await axios.post(`${BASE_URL}users/register`, {
+  let user = await axios.post(`users/register`, {
     names,
     email,
     password,
   });
   return user.data;
+};
+
+const getTotalIncomes = async (): Promise<void> => {
+  let total = await axios.get(`transactions/incomes`);
+  console.log("total", total);
 };
 
 const postTransaction = async () => {
@@ -25,7 +34,7 @@ const postTransaction = async () => {
 
   axios
     .post(
-      `${BASE_URL}transactions/`,
+      `transactions/`,
       {
         amount: 10000,
         type: "income",
@@ -47,4 +56,4 @@ const postTransaction = async () => {
     });
 };
 
-export { login, register, postTransaction };
+export { login, register, getTotalIncomes };

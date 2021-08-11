@@ -11,6 +11,7 @@ export const setupUser = async (loggedInUser: any) => {
   }))(userDecodedInfo);
 
   localStorage.setItem("user", JSON.stringify(newUser));
+  localStorage.setItem("token", JSON.stringify(loggedInUser?.token));
 
   return newUser;
 };
