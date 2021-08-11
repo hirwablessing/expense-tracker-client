@@ -21,13 +21,18 @@ const register = async ({ names, email, password }: AuthenticationData) => {
   return user.data;
 };
 
-const getTotalIncomes = async (): Promise<void> => {
+const getTotalIncomes = async (): Promise<number> => {
   let total = await axios.get("transactions/expenses");
   return total.data.data;
 };
 
-const getTotalExpenses = async (): Promise<void> => {
+const getTotalExpenses = async (): Promise<number> => {
   let total = await axios.get("transactions/expenses");
+  return total.data.data;
+};
+
+const getTotalTransactions = async (): Promise<number> => {
+  let total = await axios.get("transactions/total");
   return total.data.data;
 };
 
@@ -62,4 +67,10 @@ const postTransaction = async () => {
     });
 };
 
-export { login, register, getTotalIncomes, getTotalExpenses };
+export {
+  login,
+  register,
+  getTotalIncomes,
+  getTotalExpenses,
+  getTotalTransactions,
+};
