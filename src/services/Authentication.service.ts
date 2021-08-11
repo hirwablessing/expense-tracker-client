@@ -4,15 +4,16 @@ import { AuthenticationData } from "../types";
 axios.defaults.headers.common = {
   Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "")}`,
 };
+
 axios.defaults.baseURL = "http://localhost:5000/api/";
 
 const login = async ({ email, password }: AuthenticationData) => {
-  let user = await axios.post(`users/login`, { email, password });
+  let user = await axios.post("users/login", { email, password });
   return user.data;
 };
 
 const register = async ({ names, email, password }: AuthenticationData) => {
-  let user = await axios.post(`users/register`, {
+  let user = await axios.post("users/register", {
     names,
     email,
     password,
@@ -21,8 +22,13 @@ const register = async ({ names, email, password }: AuthenticationData) => {
 };
 
 const getTotalIncomes = async (): Promise<void> => {
-  let total = await axios.get(`transactions/incomes`);
-  console.log("total", total);
+  let total = await axios.get("transactions/expenses");
+  return total.data.data;
+};
+
+const getTotalExpenses = async (): Promise<void> => {
+  let total = await axios.get("transactions/expenses");
+  return total.data.data;
 };
 
 const postTransaction = async () => {
@@ -56,4 +62,4 @@ const postTransaction = async () => {
     });
 };
 
-export { login, register, getTotalIncomes };
+export { login, register, getTotalIncomes, getTotalExpenses };
