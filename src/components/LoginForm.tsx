@@ -10,7 +10,7 @@ export default function LoginForm() {
   const { setUser } = useContext(UserContext);
   const history = useHistory();
 
-  const loginUser = async (): Promise<void> => {
+  const loginUser = async (): Promise<any> => {
     try {
       let loggedInUser = await login({
         password: userPassword,

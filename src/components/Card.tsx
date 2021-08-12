@@ -2,6 +2,7 @@ import React from "react";
 import { CardProps } from "../types";
 
 function Card(props: CardProps) {
+  console.log(props.total);
   return (
     <div className="shadow-sm p-5 rounded bg-white">
       <div className="flex gap-5">

@@ -15,11 +15,9 @@ const App = () => {
   const { user } = useContext(UserContext);
 
   return (
-    // <h2>hi there</h2>
-
     <Switch>
       <Route exact path="/">
-        <h2>hi there</h2>
+        <Login />
       </Route>
 
       <Route exact path="/login">

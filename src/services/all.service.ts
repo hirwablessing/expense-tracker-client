@@ -5,7 +5,7 @@ axios.defaults.headers.common = {
   Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "{}")}`,
 };
 
-axios.defaults.baseURL = "https://express-tracker-server.herokuapp.com/api/";
+axios.defaults.baseURL = "http://localhost:5000/api/";
 
 const login = async ({ email, password }: AuthenticationData) => {
   let user = await axios.post("users/login", { email, password });
