@@ -18,7 +18,7 @@ export default function Sidebar() {
   return (
     <div className="block shadow bg-white p-5 rounded h-screen">
       <div className="app-header flex gap-2 ">
-        <h2>logo</h2>
+        <h2 className="uppercase font-bold">logo</h2>
       </div>
 
       <div className="app-menu mt-10 text-sm flex flex-col items-center justify-center">
