@@ -2,9 +2,14 @@
 
 My goal was to simulate a professional work environment.
 
-- I built this app based on Figma designs: [Screenshot of designs]
+- I built this app based on Figma designs
 
-- I worked with tasks on a Kanban board: [Screenshot of tasks]
+![image](https://user-images.githubusercontent.com/50826640/129226347-bec62f86-6f78-48db-99f2-a6f30bc15dd1.png)
+
+- I worked with tasks on a Kanban board: 
+
+![image](https://user-images.githubusercontent.com/50826640/129226589-b2acbdbb-6cf6-419a-93a1-745b70a3cde4.png)
+
 
 - I used single branches for all features
 
@@ -21,7 +26,7 @@ My goal was to simulate a professional work environment.
 
 - Tailwind css is a great CSS framework for styling. The beauty of this thing called tailwind is it doesn't impose design specification or how your site should look like, you simply bring tiny components together to construct a user interface that is unique and allows a seamless integration with JS.
 
-- My plan is to become a good full-stack developer eventually. But for this project I used basic backend skills.
+- My plan is to become a good full-stack developer eventually. But for this project I used basic frontend/backend skills.
 
 ## If I had more time I would change this
 
