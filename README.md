@@ -30,6 +30,8 @@ My goal was to simulate a professional work environment.
 - Refactor some of the code. Especially this part [on the backend](https://github.com/hirwablessing/expense-tracker-server/blob/c93a1abde3f68b9f250ad2ffe29af4c390076126/controllers/Transaction.controller.js#L22) and another one on the [frontend](https://github.com/hirwablessing/expense-tracker-client/blob/536cefd63e458e34d842777c286bff4afe2cc16a/src/components/ExpenseChart.tsx#L13) because they're too repetitive. On the backend side, I'd move them to a reusable function and on the frontend side, I'd move that section into a custom hook and use it everywhere.
 
 - Add end-to-end tests with Cypress.
+- Add validations to my forms and asynchronous codes.
+- Good erro handling on both frontend and backend sides.
 
 - Use typescript on the Express server.
 - Remove all `any` types on the frontend part like [here](https://github.com/hirwablessing/expense-tracker-client/blob/536cefd63e458e34d842777c286bff4afe2cc16a/src/components/ExpenseChart.tsx#L17).
