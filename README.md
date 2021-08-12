@@ -26,7 +26,7 @@ My goal was to simulate a professional work environment.
 
 - Tailwind css is a great CSS framework for styling. The beauty of this thing called tailwind is it doesn't impose design specification or how your site should look like, you simply bring tiny components together to construct a user interface that is unique and allows a seamless integration with JS.
 
-- My plan is to become a good full-stack developer eventually. But for this project I used basic backend skills.
+- My plan is to become a good full-stack developer eventually. But for this project I used basic frontend/backend skills.
 
 ## If I had more time I would change this
 
