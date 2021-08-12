@@ -20,7 +20,7 @@ export default function Home() {
       let transactions = await getTotalTransactions();
 
       setIncomes(income);
-      setExpenses(expense);
+      // setExpenses(expense);
       setTransactions(transactions);
     };
 
