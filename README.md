@@ -43,6 +43,13 @@ My goal was to simulate a professional work environment.
 - Using storing `states` in one object to avoid many states in one component. [See example here](https://github.com/hirwablessing/expense-tracker-client/blob/e9b30c3a2fc95ad4e62f8284b416ed2ccfbbe778/src/views/Home.tsx#L12)
 - Refactor and refactor again.
 
+## Credentials
+
+```sh
+email: blessing@gmail.com
+password: 123456
+```
+
 ## Available Scripts
 
 # Vite + React + Tailwind CSS starter

@@ -62,14 +62,7 @@ const getTotalTransactionsByMonth = async (): Promise<[]> => {
 };
 
 const postTransaction = async (body: TransactionI): Promise<void> => {
-  axios
-    .post("/transactions", body)
-    .then((response) => {
-      console.log(response.data);
-    })
-    .catch((error) => {
-      alert(error.message);
-    });
+  axios.post("/transactions", body);
 };
 
 export {

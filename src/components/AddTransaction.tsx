@@ -33,10 +33,10 @@ export default function AddTransaction() {
         <div className="max-w-md mx-auto my-10">
           <div className="text-center">
             <h1 className="my-3 text-3xl font-semibold text-gray-700 dark:text-gray-200">
-              Sign up
+              Add Transaction
             </h1>
             <p className="text-gray-500 dark:text-gray-400">
-              Sign up to access your account
+              Register your transaction here
             </p>
           </div>
           <div className="m-7">
