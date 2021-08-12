@@ -34,3 +34,9 @@ export interface CardProps {
   title: string;
   bgColor: string;
 }
+
+export interface MenuLinksProps {
+  name: string;
+  path: string;
+  icon: string;
+}

@@ -3,16 +3,13 @@
 import React, { useContext } from "react";
 import parse from "html-react-parser";
 import { NavLink, useLocation } from "react-router-dom";
-import { MenuLinks } from "../../resources/MenuLinks";
+
 import { UserContext } from "../../context/UserContext";
+import { MenuLinksProps } from "../../types";
+import { MenuLinks } from "../../resources/MenuLinks";
 
 export default function Sidebar() {
   const { logout } = useContext(UserContext);
-  interface MenuLinks {
-    name: string;
-    path: string;
-    icon: string;
-  }
 
   const router = useLocation();
   return (
@@ -22,7 +19,7 @@ export default function Sidebar() {
       </div>
 
       <div className="app-menu mt-10 text-sm flex flex-col items-center justify-center">
-        {MenuLinks?.map((link: MenuLinks) => {
+        {MenuLinks?.map((link: MenuLinksProps) => {
           return (
             <NavLink
               to={link.path}
