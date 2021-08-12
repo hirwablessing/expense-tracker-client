@@ -1,8 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
+import { getTotalIncomes } from "../services/all.service";
 import { CardProps } from "../types";
 
 function Card(props: CardProps) {
-  console.log(props.total);
+  useEffect(() => {
+    const getTotal = async () => {
+      let income = await getTotalIncomes();
+      // let expense = await getTotalExpenses();
+      // let transactions = await getTotalTransactions();
+
+      // setIncomes(income);
+      // setExpenses(expense);
+      // setTransactions(transactions);
+      console.log("income: ", income);
+    };
+
+    getTotal();
+  }, [getTotalIncomes()]);
+
   return (
     <div className="shadow-sm p-5 rounded bg-white">
       <div className="flex gap-5">
