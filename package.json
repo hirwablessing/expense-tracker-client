@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@types/react-transition-group": "^4.4.2",
+    "axios": "^0.21.1",
     "chart.js": "^3.5.0",
     "html-react-parser": "^1.2.7",
     "jsonwebtoken": "^8.5.1",
