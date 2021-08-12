@@ -4,7 +4,7 @@ My goal was to simulate a professional work environment.
 
 - I built this app based on Figma designs
 
-![image](https://user-images.githubusercontent.com/50826640/129226347-bec62f86-6f78-48db-99f2-a6f30bc15dd1.png)
+![image](https://user-images.githubusercontent.com/50826640/129271828-d520e976-6774-4f35-b117-6c2abdc6c29c.png)
 
 - I worked with tasks on a Kanban board:
 
