@@ -1,12 +1,12 @@
 import React, { useEffect, useState } from "react";
 import Card from "../components/Card";
 import Dashboard from "../layouts/Dashboard";
-import IncomeChart from "../components/IncomeChart";
 import {
   getTotalExpenses,
   getTotalIncomes,
   getTotalTransactions,
 } from "../services/all.service";
+import TransactionChart from "../components/TransactionChart";
 
 export default function Home() {
   const [totalIncomes, setIncomes] = useState<number>(0);
@@ -38,8 +38,9 @@ export default function Home() {
           bgColor="#ec6448"
         />
       </div>
+      <h2 className="font-bold my-4">Overall transactions</h2>
       <div className="bg-white rounded shadow-md my-2 w-full pb-10">
-        <IncomeChart />
+        <TransactionChart />
       </div>
     </Dashboard>
   );
