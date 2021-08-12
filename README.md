@@ -6,16 +6,15 @@ My goal was to simulate a professional work environment.
 
 ![image](https://user-images.githubusercontent.com/50826640/129226347-bec62f86-6f78-48db-99f2-a6f30bc15dd1.png)
 
-- I worked with tasks on a Kanban board: 
+- I worked with tasks on a Kanban board:
 
 ![image](https://user-images.githubusercontent.com/50826640/129226589-b2acbdbb-6cf6-419a-93a1-745b70a3cde4.png)
-
 
 - I used single branches for all features
 
 ## How to navigate this project
 
-- Somewhat complex stateful logic: [Link to example code on GitHub]
+- Some stateful logic: [See here](https://github.com/hirwablessing/expense-tracker-client/blob/e9b30c3a2fc95ad4e62f8284b416ed2ccfbbe778/src/views/Home.tsx#L12)
 
 - Responsive CSS using Tailwind css. [See here](https://github.com/hirwablessing/expense-tracker-client/blob/ec4b70cd4975beafb4ec5c30eb66776804f89985/src/views/Home.tsx#L32)
 - The application fetches data from the Express API and Json data transformation with axios: [See here](https://github.com/hirwablessing/expense-tracker-client/blob/ec4b70cd4975beafb4ec5c30eb66776804f89985/src/services/all.service.ts#L50)
@@ -40,6 +39,8 @@ My goal was to simulate a professional work environment.
 
 - Use typescript on the Express server.
 - Remove all `any` types on the frontend part like [here](https://github.com/hirwablessing/expense-tracker-client/blob/536cefd63e458e34d842777c286bff4afe2cc16a/src/components/ExpenseChart.tsx#L17).
+- Batch `react state updates` into one update to avoid many renderings by using `react 18 alpha` features. [See here](https://github.com/hirwablessing/expense-tracker-client/blob/e9b30c3a2fc95ad4e62f8284b416ed2ccfbbe778/src/views/Home.tsx#L22)
+- Using storing `states` in one object to avoid many states in one component. [See example here](https://github.com/hirwablessing/expense-tracker-client/blob/e9b30c3a2fc95ad4e62f8284b416ed2ccfbbe778/src/views/Home.tsx#L12)
 - Refactor and refactor again.
 
 ## Available Scripts
