@@ -18,6 +18,10 @@ const App = () => {
     // <h2>hi there</h2>
 
     <Switch>
+      <Route exact path="/">
+        <h2>hi there</h2>
+      </Route>
+
       <Route exact path="/login">
         <Login />
       </Route>
@@ -28,10 +32,6 @@ const App = () => {
 
       {user?._id && (
         <>
-          <Route exact path="/income">
-            <Login />
-          </Route>
-
           <Route exact path="/home">
             <Home />
           </Route>

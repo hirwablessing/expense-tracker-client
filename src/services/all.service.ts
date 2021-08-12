@@ -2,7 +2,7 @@ import axios from "axios";
 import { AuthenticationData, TransactionI } from "../types";
 
 axios.defaults.headers.common = {
-  Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "")}`,
+  Authorization: `Bearer ${JSON.parse(localStorage.getItem("token") || "{}")}`,
 };
 
 axios.defaults.baseURL = "http://localhost:5000/api/";
@@ -46,6 +46,11 @@ const getTotalExpenseByMonth = async (): Promise<[]> => {
   return total.data.data;
 };
 
+const getHighestExpense = async (): Promise<string> => {
+  let expnese = await axios.get("transactions/expenses/highest");
+  return expnese.data.data;
+};
+
 const getAllTransactions = async (): Promise<[]> => {
   let transactions = await axios.get("transactions/");
   return transactions.data.data;
@@ -69,6 +74,7 @@ export {
   getTotalIncomeByMonth,
   getTotalExpenses,
   getTotalExpenseByMonth,
+  getHighestExpense,
   getTotalTransactions,
   getAllTransactions,
   postTransaction,
