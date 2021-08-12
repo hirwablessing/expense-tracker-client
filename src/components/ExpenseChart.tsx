@@ -3,13 +3,7 @@ import { Pie } from "react-chartjs-2";
 import {
   getHighestExpense,
   getTotalExpenseByMonth,
-  getTotalIncomeByMonth,
 } from "../services/all.service";
-
-// const globalAny: any = global;
-
-// globalAny.global.tooltips.enabled = false;
-// globalAny.global.legend.position = "bottom";
 
 export default function ExpenseChart() {
   const [totalExpense, setExpenses] = useState([]);
@@ -74,12 +68,6 @@ export default function ExpenseChart() {
                 ],
                 borderWidth: 1,
               },
-              // {
-              //   label: 'Quantity',
-              //   data: [47, 52, 67, 58, 9, 50],
-              //   backgroundColor: 'orange',
-              //   borderColor: 'red',
-              // },
             ],
           }}
           height={400}

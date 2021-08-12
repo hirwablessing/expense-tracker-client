@@ -2,11 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Pie, defaults } from "react-chartjs-2";
 import { getTotalIncomeByMonth } from "../services/all.service";
 
-// const globalAny: any = global;
-
-// globalAny.global.tooltips.enabled = false;
-// globalAny.global.legend.position = "bottom";
-
 export default function IncomeChart() {
   const [totalIncome, setIncomes] = useState([]);
 
@@ -65,12 +60,6 @@ export default function IncomeChart() {
               ],
               borderWidth: 1,
             },
-            // {
-            //   label: 'Quantity',
-            //   data: [47, 52, 67, 58, 9, 50],
-            //   backgroundColor: 'orange',
-            //   borderColor: 'red',
-            // },
           ],
         }}
         height={400}
