@@ -20,7 +20,7 @@ export default function LoginForm() {
       let newUser = setupUser(loggedInUser);
 
       setUser(await newUser);
-      history.push("/home");
+      history.replace("/home");
     } catch (error) {
       alert(error.message);
     }
